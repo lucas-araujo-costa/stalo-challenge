@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Editar Transação - Stalo Challenge</title>
+        <style>
+            body {
+                font-family: "Poppins", sans-serif;
+                margin: 0;
+                background: #f2f4f5;
+                display: flex;
+            }
+            .sidebar {
+                width: 200px;
+                background-color: #1a1a1a;
+                color: white;
+                height: 100vh;
+                padding: 20px;
+                position: fixed;
+            }
+            .sidebar h2 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 6px;
+            }
+            .sidebar a:hover {
+                background-color: #333;
+            }
+            .container {
+                margin-left: 220px;
+                padding: 20px;
+                width: calc(100% - 220px);
+            }
+            .content {
+                background-color: white;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+            h1 {
+                font-size: 24px;
+                color: #555;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 15px;
+                text-align: left;
+            }
+            .form-group label {
+                font-size: 14px;
+                font-weight: 500;
+                color: #555;
+            }
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                background-color: #f8f9fa;
+                font-size: 14px;
+            }
+            .form-group button {
+                width: 100%;
+                padding: 12px;
+                background-color: #00cd0d;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+            .form-group button:hover {
+                background-color: #95ff9c;
+            }
+            a.back-link {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #6c757d;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+            }
+            a.back-link:hover {
+                background-color: #5a6268;
+            }
+            .error-message {
+                color: red;
+                font-size: 0.85em;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <h2>Stalo Challenge</h2>
+            <a href="index.html">Transações</a>
+            <!-- Alterado de transactions.html para index.html -->
+            <a href="create-transaction.html">Cadastrar Transação</a>
+            <a href="#" id="logout">Sair</a>
+        </div>
+        <div class="container">
+            <div class="content">
+                <h1 id="title">Editar Transação</h1>
+                <form id="transaction-form">
+                    <input type="hidden" id="transaction-id" />
+                    <div class="form-group">
+                        <label for="amount">Valor (R$)</label>
+                        <input
+                            type="number"
+                            name="amount"
+                            id="amount"
+                            step="0.01"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input
+                            type="text"
+                            name="cpf"
+                            id="cpf"
+                            maxlength="14"
+                            required
+                        />
+                        <div
+                            id="cpf-error"
+                            class="error-message"
+                            style="display: none"
+                        ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select name="status" id="status" required>
+                            <option value="Em processamento">
+                                Em processamento
+                            </option>
+                            <option value="Aprovada">Aprovada</option>
+                            <option value="Negada">Negada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="document">Documento (PDF ou Imagem)</label>
+                        <input
+                            type="file"
+                            id="document"
+                            name="document"
+                            accept=".pdf,.jpeg,.png"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+                <a href="index.html" class="back-link">Voltar</a>
+                <!-- Alterado de transactions.html para index.html -->
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="js/edit-transaction.js"></script>
+    </body>
+</html>

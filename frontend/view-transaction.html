@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Detalhes da Transação - Stalo Challenge</title>
+        <style>
+            body {
+                font-family: "Poppins", sans-serif;
+                margin: 0;
+                background: #f2f4f5;
+                display: flex;
+            }
+            .sidebar {
+                width: 200px;
+                background-color: #1a1a1a;
+                color: white;
+                height: 100vh;
+                padding: 20px;
+                position: fixed;
+            }
+            .sidebar h2 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 6px;
+            }
+            .sidebar a:hover {
+                background-color: #333;
+            }
+            .container {
+                margin-left: 220px;
+                padding: 20px;
+                width: calc(100% - 220px);
+            }
+            .content {
+                background-color: white;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+            h1 {
+                font-size: 24px;
+                color: #555;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            p strong {
+                color: #555;
+            }
+            a.back-link {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #6c757d;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+            }
+            a.back-link:hover {
+                background-color: #5a6268;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <h2>Stalo Challenge</h2>
+            <a href="index.html">Transações</a>
+            <!-- Alterado de transactions.html para index.html -->
+            <a href="create-transaction.html">Cadastrar Transação</a>
+            <a href="#" id="logout">Sair</a>
+        </div>
+        <div class="container">
+            <div class="content">
+                <h1 id="title">Detalhes da Transação</h1>
+                <p><strong>Data:</strong> <span id="created_at"></span></p>
+                <p><strong>Valor:</strong> R$ <span id="amount"></span></p>
+                <p><strong>CPF:</strong> <span id="cpf"></span></p>
+                <p><strong>Status:</strong> <span id="status"></span></p>
+                <p id="document-link">
+                    <strong>Documento:</strong>
+                    <a id="document" href="#" target="_blank">Ver documento</a>
+                </p>
+                <a href="index.html" class="back-link">Voltar</a>
+                <!-- Alterado de transactions.html para index.html -->
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="js/view-transaction.js"></script>
+    </body>
+</html>
