@@ -33,3 +33,7 @@ Olá 👋 essa é minha solução para o desafio Laravel da Stalo
     php -S localhost:8080
     ```
 6. Acesse o domínio http://localhost:8080
+
+## Próximos passos:
+
+1. Implementar a arquitetura multi-tenant.
