@@ -1,17 +1,15 @@
 $(document).ready(function () {
     const token = localStorage.getItem("token");
     if (!token) {
-        window.location.href = "login.html"; // Alterado de index.html para login.html
+        window.location.href = "login.html";
     }
 
     let currentTransactionId = null;
 
-    // Garantir que o modal esteja escondido ao carregar a página
     window.onload = function () {
         $("#deleteModal").hide();
     };
 
-    // Carregar transações
     function loadTransactions() {
         $.ajax({
             url: "http://localhost:8000/api/transactions",
@@ -60,7 +58,6 @@ $(document).ready(function () {
 
     loadTransactions();
 
-    // Comportamento do dropdown
     $(document).on("mouseenter", ".dropdown", function () {
         $(this).find(".dropdown-content").show();
     });
@@ -68,14 +65,12 @@ $(document).ready(function () {
         $(this).find(".dropdown-content").hide();
     });
 
-    // Visualizar transação
     $(document).on("click", ".view-transaction", function (e) {
         e.preventDefault();
         const id = $(this).data("id");
         window.location.href = `view-transaction.html?id=${id}`;
     });
 
-    // Excluir transação
     const deleteModal = $("#deleteModal");
     const confirmDelete = $("#confirmDelete");
     const cancelDelete = $("#cancelDelete");
@@ -114,10 +109,9 @@ $(document).ready(function () {
         }
     });
 
-    // Logout
     $("#logout").on("click", function (e) {
         e.preventDefault();
         localStorage.removeItem("token");
-        window.location.href = "login.html"; // Alterado de index.html para login.html
+        window.location.href = "login.html";
     });
 });

@@ -12,7 +12,7 @@ $(document).ready(function () {
             data: JSON.stringify({ email, password }),
             success: function (response) {
                 localStorage.setItem("token", response.token);
-                window.location.href = "index.html"; // Alterado para index.html
+                window.location.href = "index.html";
             },
             error: function (xhr) {
                 const errorMessage =

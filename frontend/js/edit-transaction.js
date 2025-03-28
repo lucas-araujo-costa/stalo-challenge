@@ -1,15 +1,13 @@
 $(document).ready(function () {
     const token = localStorage.getItem("token");
     if (!token) {
-        window.location.href = "login.html"; // Alterado de index.html para login.html
+        window.location.href = "login.html";
     }
 
-    // Pegar o ID da transação da URL
     const urlParams = new URLSearchParams(window.location.search);
     const transactionId = urlParams.get("id");
     $("#transaction-id").val(transactionId);
 
-    // Máscara de CPF
     $("#cpf").on("input", function (e) {
         let value = e.target.value.replace(/\D/g, "");
         value = value.replace(/(\d{3})(\d)/, "$1.$2");
@@ -18,7 +16,6 @@ $(document).ready(function () {
         e.target.value = value;
     });
 
-    // Carregar os dados da transação
     $.ajax({
         url: `http://localhost:8000/api/transactions/${transactionId}`,
         method: "GET",
@@ -37,7 +34,7 @@ $(document).ready(function () {
         },
         error: function () {
             alert("Erro ao carregar transação.");
-            window.location.href = "index.html"; // Alterado de transactions.html para index.html
+            window.location.href = "index.html";
         },
     });
 
@@ -62,7 +59,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function () {
-                window.location.href = "index.html"; // Alterado de transactions.html para index.html
+                window.location.href = "index.html";
             },
             error: function (xhr) {
                 const errorMessage =
@@ -79,6 +76,6 @@ $(document).ready(function () {
     $("#logout").on("click", function (e) {
         e.preventDefault();
         localStorage.removeItem("token");
-        window.location.href = "login.html"; // Alterado de index.html para login.html
+        window.location.href = "login.html";
     });
 });
