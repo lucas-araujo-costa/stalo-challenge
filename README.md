@@ -37,3 +37,4 @@ Olá 👋 essa é minha solução para o desafio Laravel da Stalo
 ## Próximos passos:
 
 1. Implementar a arquitetura multi-tenant.
+2. Ajustar o método update() através da web
